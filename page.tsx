@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import HeroCircle from "@/components/hero-circle";
 import MobileMenu from "@/components/mobile-menu";
-import { TechSection, ContactSection } from "@/components/TechSection";
+import TechSection from "@/components/TechSection";
+import Footer from "@/components/footer-section";
 
 export default function Home() {
   return (
@@ -1000,12 +1001,8 @@ export default function Home() {
 
       {/* Tech Section */}
       <TechSection />
-      <div>
-        {/* Other Sections */}
-        <TechSection /> {/* This will render the tech section */}
-        <ContactSection /> {/* This will render the contact section */}
-      </div>
 
+      <Footer />
       {/* Footer */}
       <footer className="bg-[#080919] py-12">
         <div className="container mx-auto px-4">

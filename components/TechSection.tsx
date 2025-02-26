@@ -2,128 +2,86 @@
 
 import React, { useState } from "react";
 
-// Technology section
-const TechSection = () => {
-  const techItems = [
-    { name: "Git", logo: "🔶", position: "left-12 bottom-24" },
-    { name: "AWS", logo: "☁️", position: "left-32 top-24" },
-    { name: "MongoDB", logo: "🍃", position: "left-64 bottom-12" },
-    { name: "HTML/CSS", logo: "🔶", position: "left-1/3 top-20" },
-    { name: "React", logo: "⚛️", position: "left-1/2 bottom-16" },
-    { name: "Angular", logo: "🅰️", position: "left-1/2 top-48" },
-    { name: "WordPress", logo: "🔷", position: "left-2/3 top-24" },
-    { name: "Node.js", logo: "🟢", position: "left-3/4 top-12" },
-    { name: "MySQL", logo: "🐬", position: "right-32 top-20" },
-    { name: "PHP", logo: "🐘", position: "right-24 bottom-16" },
-    { name: "Flutter", logo: "🔵", position: "right-1/2 bottom-24" },
-  ];
+const techItems = [
+  { name: "Git", logo: "/images/git.png", position: "top-[50px]" },
+  { name: "AWS", logo: "/images/aws.png", position: "top-[80px]" },
+  {
+    name: "Google Cloud",
+    logo: "/images/google-cloud.png",
+    position: "top-[60px]",
+  },
+  { name: "MongoDB", logo: "/images/mongodb.png", position: "top-[90px]" },
+  { name: "HTML/CSS", logo: "/images/html-css.png", position: "top-[70px]" },
+  { name: "React", logo: "/images/react.png", position: "top-[100px]" },
+  { name: "Angular", logo: "/images/angular.png", position: "top-[85px]" },
+  { name: "WordPress", logo: "/images/wordpress.png", position: "top-[65px]" },
+  { name: "Node.js", logo: "/images/nodejs.png", position: "top-[95px]" },
+  { name: "MySQL", logo: "/images/mysql.png", position: "top-[75px]" },
+  { name: "PHP", logo: "/images/php.png", position: "top-[85px]" },
+];
 
-  const [hoveredItem, setHoveredItem] = useState(null);
+const TechSection = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="bg-[#080919] py-16 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+    <section className="bg-[#080919] py-16 relative overflow-hidden text-white">
+      <div className="container mx-auto px-4 relative flex flex-col items-center">
+        {/* Box with Text */}
+        <div className="text-white p-6 rounded-md shadow-md max-w-3xl text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             We are Professional at
           </h2>
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-gray-700">
             Either it's a web application, mobile app, or custom software
-            solution, we at Creware Technologies have a proven track record of
+            solution, we at Creware Technologies have a proven track record ofx
             bringing creative concepts to life, backed by a commitment to
-            quality, innovation, and timely delivery.
+            quality, innovation, and timely delivery. Our customer-centric
+            approach means that your input is central to the development
+            process, ensuring that the final product aligns perfectly with your
+            vision.
+          </p>
+          <p className="text-gray-700 mt-2">
+            The ability to convert ideas into IT software reality is not just a
+            service at Creware Technologies; it's a passion, a promise, and a
+            pathway to digital transformation for businesses looking to make
+            their mark in the digital landscape. With a focus on cutting-edge
+            technology and a customer-driven mindset, we are the partner of
+            choice for those seeking to turn their software dreams into reality.
           </p>
         </div>
 
-        <div className="relative h-80 mb-8">
-          {/* Grid Lines */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-full h-px bg-gray-700"></div>
-          </div>
-          <div className="absolute inset-0 flex items-center">
-            <div className="h-full w-px bg-gray-700 mx-auto"></div>
-          </div>
-
-          {/* Tech Items */}
+        {/* Tech Items with Zig-Zag Layout */}
+        <div className="relative mt-12 flex flex-wrap justify-center gap-12">
           {techItems.map((item, index) => (
             <div
-              key={item.name}
-              className={`absolute ${item.position} transform transition-transform duration-300 ease-out`}
-              style={{
-                transform:
-                  hoveredItem === index ? "translateY(-8px)" : "translateY(0)",
-              }}
-              onMouseEnter={() => setHoveredItem(index)}
-              onMouseLeave={() => setHoveredItem(null)}
+              key={index}
+              className={`relative flex flex-col items-center ${item.position}`}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-md cursor-pointer">
-                <span className="text-2xl">{item.logo}</span>
+              {/* Dotted Line */}
+              <div className="absolute top-[-80px] h-[70px] w-px border-dashed border-white border opacity-50"></div>
+
+              {/* Tech Icon with Hover Effect */}
+              <div
+                className={`bg-white w-16 h-16 flex items-center justify-center rounded-lg shadow-lg transform transition-transform duration-300 ease-out ${
+                  hoveredIndex === index ? "-translate-y-3" : "translate-y-0"
+                }`}
+              >
+                <img src={item.logo} alt={item.name} className="w-10 h-10" />
               </div>
-              <div className="mt-2 text-center text-xs text-gray-400">
-                {item.name}
-              </div>
+
+              {/* Tech Label */}
+              <p className="text-sm text-gray-300 mt-2">{item.name}</p>
             </div>
           ))}
         </div>
       </div>
+      <br />
+      <br />
+      <br />
     </section>
   );
 };
 
-// Contact Section
-const ContactSection = () => {
-  return (
-    <section className="bg-[#0f1232] text-white p-10 flex flex-col md:flex-row">
-      <div className="md:w-2/5 mb-8 md:mb-0">
-        <h2 className="text-4xl font-bold mb-4">
-          We'd love
-          <br />
-          to hear
-          <br />
-          your story
-        </h2>
-        <div className="mb-6">
-          <p className="text-sm">+91 90268 49414 • +91 9026623490</p>
-          <p className="text-sm">shashanksharmaa123599@gmail.com</p>
-        </div>
-      </div>
-
-      <div className="md:w-3/5 md:pl-8">
-        <h3 className="text-xl font-bold mb-6">Get in touch</h3>
-        <div className="space-y-4">
-          {[
-            "Hi! I am",
-            "Reach me at",
-            "Country",
-            "Mobile no.",
-            "Company Name",
-            "Message",
-          ].map((label, index) => (
-            <div className="flex items-center" key={index}>
-              <div className="w-24 text-sm">{label}</div>
-              <div className="text-[#7ba9e0]">eg: ...</div>
-            </div>
-          ))}
-
-          <div className="flex items-center mt-4">
-            <input type="checkbox" className="mr-3" />
-            <p className="text-xs">
-              By submitting your email, you consent to receive communication
-              from us via email or phone for the purpose of connecting with you
-              regarding our products and services.
-            </p>
-          </div>
-
-          <div className="mt-6 flex justify-end">
-            <button className="bg-red-600 text-white px-8 py-2 text-sm">
-              SEND
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Export components
-export { TechSection, ContactSection };
+export default TechSection;
