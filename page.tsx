@@ -9,9 +9,6 @@ import ContactForm from "@/components/ContactForm";
 import OfferingsSection from "@/components/offering";
 import AnimatedCounterSection from "@/components/TechAssistantCounters";
 
-{
-  /* <HeroSection />; */
-}
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0e0f2e] text-white">

@@ -29,7 +29,7 @@ export default function HeroCircle() {
         <span className="text-red-600 text-2xl font-bold">C</span>
       </motion.div>
 
-      {/* Orbit circles - continuously rotating */}
+      {/* Orbit circles - all rotating counterclockwise */}
       {[1, 2, 3].map((orbit, index) => (
         <motion.div
           key={orbit}
@@ -37,7 +37,7 @@ export default function HeroCircle() {
           animate={{
             scale: 1,
             opacity: 1,
-            rotate: index % 2 === 0 ? 360 : -360,
+            rotate: 360, // All circles rotating counterclockwise
           }}
           transition={{
             scale: { duration: 0.5, delay: orbit * 0.2 },
@@ -53,7 +53,90 @@ export default function HeroCircle() {
             width: `${orbit * 100 + 50}px`,
             height: `${orbit * 100 + 50}px`,
           }}
-        />
+        >
+          {/* Use specific images based on which circle */}
+          {orbit === 1 && (
+            <>
+              {/* Inner circle images: aws.png and google.png */}
+              <motion.div
+                key="inner-icon-1"
+                className="absolute w-8 h-8 rounded-full flex items-center justify-center"
+                style={{
+                  left: "50%",
+                  top: "50%",
+                  transform: `rotate(0rad) translateX(${
+                    (orbit * 100 + 50) / 2
+                  }px) rotate(0rad)`,
+                }}
+              >
+                <img
+                  src="/images/image4.png"
+                  alt="AWS"
+                  className="w-12 h-12 object-contain"
+                />
+              </motion.div>
+              <motion.div
+                key="inner-icon-2"
+                className="absolute w-8 h-8 rounded-full flex items-center justify-center"
+                style={{
+                  left: "50%",
+                  top: "50%",
+                  transform: `rotate(${Math.PI}rad) translateX(${
+                    (orbit * 100 + 50) / 2
+                  }px) rotate(-${Math.PI}rad)`,
+                }}
+              >
+                <img
+                  src="images/image3.png"
+                  alt="Node"
+                  className="w-8 h-8 object-contain"
+                />
+              </motion.div>
+            </>
+          )}
+
+          {orbit === 2 && (
+            <>
+              {/* Second circle images: angular.png and react.png */}
+              <motion.div
+                key="middle-icon-1"
+                className="absolute w-8 h-8 rounded-full flex items-center justify-center"
+                style={{
+                  left: "50%",
+                  top: "50%",
+                  transform: `rotate(0rad) translateX(${
+                    (orbit * 100 + 50) / 2
+                  }px) rotate(0rad)`,
+                }}
+              >
+                <img
+                  src="/images/image2.png"
+                  alt="Angular"
+                  className="w-8 h-8 object-contain"
+                />
+              </motion.div>
+              <motion.div
+                key="middle-icon-2"
+                className="absolute w-8 h-8 rounded-full flex items-center justify-center"
+                style={{
+                  left: "50%",
+                  top: "50%",
+                  transform: `rotate(${Math.PI}rad) translateX(${
+                    (orbit * 100 + 50) / 2
+                  }px) rotate(-${Math.PI}rad)`,
+                }}
+              >
+                <img
+                  src="/images/image1.png"
+                  alt="React"
+                  className="w-8 h-8 object-contain"
+                />
+              </motion.div>
+            </>
+          )}
+
+          {orbit === 3 && <>{/* Outer circle - no images for now */}</>}
+        </motion.div>
       ))}
 
       {/* Service bubbles - fixed in position but subtly animating */}
@@ -64,16 +147,16 @@ export default function HeroCircle() {
 
         if (service.id === 1) {
           x = -120;
-          y = -80;
+          y = -160;
         } else if (service.id === 2) {
           x = 120;
-          y = -80;
+          y = -160;
         } else if (service.id === 3) {
           x = -120;
-          y = 80;
+          y = 160;
         } else if (service.id === 4) {
           x = 120;
-          y = 80;
+          y = 160;
         }
 
         return (
@@ -101,7 +184,7 @@ export default function HeroCircle() {
         );
       })}
 
-      {/* Small dots - pulsing and subtly moving */}
+      {/* Small dots - pulsing and subtly moving
       {[1, 2, 3, 4].map((dot, index) => {
         const angle = (index * Math.PI) / 2;
         const x = 50 + Math.cos(angle) * 120;
@@ -129,7 +212,7 @@ export default function HeroCircle() {
             }}
           />
         );
-      })}
+      })} */}
     </div>
   );
 }
