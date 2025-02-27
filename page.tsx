@@ -6,7 +6,12 @@ import MobileMenu from "@/components/mobile-menu";
 import TechSection from "@/components/TechSection";
 import Footer from "@/components/footer-section";
 import ContactForm from "@/components/ContactForm";
+import OfferingsSection from "@/components/offering";
+import AnimatedCounterSection from "@/components/TechAssistantCounters";
 
+{
+  /* <HeroSection />; */
+}
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0e0f2e] text-white">
@@ -63,7 +68,6 @@ export default function Home() {
         </nav>
         <MobileMenu />
       </header>
-
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center">
         <div className="w-full md:w-1/2 mb-10 md:mb-0">
@@ -78,133 +82,8 @@ export default function Home() {
             bridge the gap between dreams and reality with innovation and
             technology.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            {/* <Button
-              size="lg"
-              className="bg-red-600 hover:bg-red-700 text-white"
-            >
-              Get Started
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white/10"
-            >
-              Learn More
-            </Button> */}
-          </div>
         </div>
       </section>
-
-      {/* About Section */}
-      {/* <section id="about" className="bg-[#0a0b20] py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">
-            ABOUT <span className="text-red-600">US</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Who We Are</h3>
-              <p className="text-gray-300 mb-4">
-                Tech Assistant is a leading software development company
-                dedicated to transforming businesses through innovative
-                technology solutions. With a team of expert developers,
-                designers, and strategists, we deliver cutting-edge digital
-                products that drive growth and efficiency.
-              </p>
-              <p className="text-gray-300">
-                Founded in 2015, we've helped hundreds of businesses across
-                various industries achieve their digital transformation goals.
-                Our client-centric approach ensures that we deliver solutions
-                that not only meet but exceed expectations.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#161735] p-6 rounded-lg">
-                <h4 className="text-red-600 text-4xl font-bold mb-2">200+</h4>
-                <p className="text-sm text-gray-300">Projects Completed</p>
-              </div>
-              <div className="bg-[#161735] p-6 rounded-lg">
-                <h4 className="text-red-600 text-4xl font-bold mb-2">50+</h4>
-                <p className="text-sm text-gray-300">Expert Team Members</p>
-              </div>
-              <div className="bg-[#161735] p-6 rounded-lg">
-                <h4 className="text-red-600 text-4xl font-bold mb-2">98%</h4>
-                <p className="text-sm text-gray-300">Client Satisfaction</p>
-              </div>
-              <div className="bg-[#161735] p-6 rounded-lg">
-                <h4 className="text-red-600 text-4xl font-bold mb-2">10+</h4>
-                <p className="text-sm text-gray-300">Years of Experience</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Services Section */}
-      {/* <section id="services" className="container mx-auto px-4 py-16 md:py-24">
-        <h2 className="text-4xl font-bold text-center mb-16">
-          OUR <span className="text-red-600">SERVICES</span>
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div>
-            <h3 className="text-2xl font-bold mb-4">
-              We cover anything from web development to mobile app solutions.
-            </h3>
-          </div>
-          <div>
-            <p className="text-gray-300">
-              We offer a wide range of IT software services, enabling businesses
-              to thrive in the digital age. From custom software development to
-              cloud solutions, we drive innovation and efficiency. Discover your
-              digital potential with us.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <ServiceCard
-            title="Custom Software Development"
-            description="Tailored solutions designed to meet your specific business needs and challenges."
-            icon="💻"
-          />
-          <ServiceCard
-            title="Mobile App Development"
-            description="Native and cross-platform mobile applications for iOS and Android devices."
-            icon="📱"
-          />
-          <ServiceCard
-            title="Web Development"
-            description="Responsive, user-friendly websites and web applications with modern technologies."
-            icon="🌐"
-          />
-          <ServiceCard
-            title="UI/UX Design"
-            description="Intuitive, engaging user interfaces and experiences that delight your customers."
-            icon="🎨"
-          />
-          <ServiceCard
-            title="Cloud Solutions"
-            description="Scalable, secure cloud infrastructure and migration services."
-            icon="☁️"
-          />
-          <ServiceCard
-            title="DevOps"
-            description="Streamlined development operations for faster, more reliable software delivery."
-            icon="⚙️"
-          />
-          <ServiceCard
-            title="AI & Machine Learning"
-            description="Intelligent solutions that leverage data to drive business insights and automation."
-            icon="🤖"
-          />
-          <ServiceCard
-            title="Cybersecurity"
-            description="Comprehensive security solutions to protect your digital assets and data."
-            icon="🔒"
-          />
-        </div>
-      </section> */}
       <section id="services" className="bg-[#0B0D21] py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-center mb-6">
@@ -437,6 +316,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <OfferingsSection />
 
       <section id="why-choose-us" className="bg-[#0B0D21] py-12">
         <div className="container mx-auto px-4">
@@ -656,8 +536,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section id="offerings" className="bg-[#0a0b20] py-16 md:py-24">
+      {/* <section id="offerings" className="bg-[#0a0b20] py-16 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">
             OUR <span className="text-red-600">OFFERINGS</span>
@@ -758,7 +637,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Our Clients Section */}
       <section className="bg-[#0a0b20] py-16 md:py-24">
         <div className="container mx-auto px-4">
@@ -808,7 +687,7 @@ export default function Home() {
       {/* Numbers Section with Stats */}
       <section className="bg-[#070b29] py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <img src="tech02.png" alt="Test" className="w-110 h-100" />
+          <AnimatedCounterSection />
 
           {/* TESTIMONIALS Title */}
           <h2 className="text-4xl font-bold text-center mb-12 text-white uppercase">
@@ -906,8 +785,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Tech Section */}
       <TechSection />
       <ContactForm />
       <Footer />
