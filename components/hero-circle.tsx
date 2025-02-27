@@ -37,7 +37,7 @@ export default function HeroCircle() {
           animate={{
             scale: 1,
             opacity: 1,
-            rotate: 360, // All circles rotating counterclockwise
+            rotate: 360, 
           }}
           transition={{
             scale: { duration: 0.5, delay: orbit * 0.2 },
@@ -54,10 +54,8 @@ export default function HeroCircle() {
             height: `${orbit * 100 + 50}px`,
           }}
         >
-          {/* Use specific images based on which circle */}
           {orbit === 1 && (
             <>
-              {/* Inner circle images: aws.png and google.png */}
               <motion.div
                 key="inner-icon-1"
                 className="absolute w-8 h-8 rounded-full flex items-center justify-center"
@@ -97,7 +95,6 @@ export default function HeroCircle() {
 
           {orbit === 2 && (
             <>
-              {/* Second circle images: angular.png and react.png */}
               <motion.div
                 key="middle-icon-1"
                 className="absolute w-8 h-8 rounded-full flex items-center justify-center"
@@ -139,9 +136,7 @@ export default function HeroCircle() {
         </motion.div>
       ))}
 
-      {/* Service bubbles - fixed in position but subtly animating */}
       {services.map((service) => {
-        // Calculate initial position
         let x = 0;
         let y = 0;
 
@@ -184,35 +179,7 @@ export default function HeroCircle() {
         );
       })}
 
-      {/* Small dots - pulsing and subtly moving
-      {[1, 2, 3, 4].map((dot, index) => {
-        const angle = (index * Math.PI) / 2;
-        const x = 50 + Math.cos(angle) * 120;
-        const y = 50 + Math.sin(angle) * 120;
-
-        return (
-          <motion.div
-            key={`dot-${dot}`}
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: [0.5, 1, 0.5],
-              scale: [0.8, 1, 0.8],
-            }}
-            transition={{
-              delay: index * 0.4 + 1,
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute w-3 h-3 bg-white rounded-full"
-            style={{
-              top: `${y}px`,
-              left: `${x}px`,
-              transform: "translate(-50%, -50%)",
-            }}
-          />
-        );
-      })} */}
+      
     </div>
   );
 }
