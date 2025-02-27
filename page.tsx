@@ -14,11 +14,13 @@ export default function Home() {
       <header className="container mx-auto px-4 py-6 flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <div className="text-2xl font-bold">
-            TECH
-            <span className="relative">
-              <span className="absolute text-red-600 -top-1 left-1.5">▲</span>
-            </span>
-            SSISTANT
+            <Image
+              src="tech.png"
+              alt="Tech Assistant Logo"
+              width={200}
+              height={60}
+              className="mb-4"
+            />
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
@@ -801,204 +803,109 @@ export default function Home() {
               </p>
             </div>
           </div>
-
-          {/* <div className="text-center mt-16">
-            <h2 className="text-3xl font-bold">
-              Numbers Speak{" "}
-              <span className="text-red-600">Louder Than Words</span>
-            </h2>
-          </div> */}
         </div>
       </section>
-
       {/* Numbers Section with Stats */}
-      <section className="bg-[#0a0b20] py-16 md:py-24">
+      <section className="bg-[#070b29] py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">
-            Numbers Speak{" "}
-            <span className="text-red-600">Louder Than Words</span>
-          </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-            {/* Coffee Cups Counter */}
-            <div className="relative">
-              <div className="bg-gray-800 p-4 rounded-md relative">
-                <div className="absolute -top-2 -right-2 transform rotate-12">
-                  <span className="text-red-600 text-xs font-bold">
-                    TECH ASSIST
-                  </span>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-center text-white">
-                  "0""5""5"
-                </h3>
-                <p className="text-center text-white text-sm mt-2">
-                  COFFEE CUPS
-                </p>
-              </div>
-            </div>
-
-            {/* Projects Counter */}
-            <div className="relative">
-              <div className="bg-gray-800 p-4 rounded-md relative">
-                <div className="absolute -top-2 -right-2 transform rotate-12">
-                  <span className="text-red-600 text-xs font-bold">
-                    TECH ASSIST
-                  </span>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-center text-white">
-                  "1""2""0"
-                </h3>
-                <p className="text-center text-white text-sm mt-2">PROJECTS</p>
-              </div>
-            </div>
-
-            {/* Offices Counter */}
-            <div className="relative">
-              <div className="bg-gray-800 p-4 rounded-md relative">
-                <div className="absolute -top-2 -right-2 transform rotate-12">
-                  <span className="text-red-600 text-xs font-bold">
-                    TECH ASSIST
-                  </span>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-center text-white">
-                  "0""0""1"
-                </h3>
-                <p className="text-center text-white text-sm mt-2">OFFICES</p>
-              </div>
-            </div>
-
-            {/* Clients Counter */}
-            <div className="relative">
-              <div className="bg-gray-800 p-4 rounded-md relative">
-                <div className="absolute -top-2 -right-2 transform rotate-12">
-                  <span className="text-red-600 text-xs font-bold">
-                    TECH ASSIST
-                  </span>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-center text-white">
-                  "1""0""0"
-                </h3>
-                <p className="text-center text-white text-sm mt-2">CLIENTS</p>
-              </div>
-            </div>
-          </div>
+          <img src="tech02.png" alt="Test" className="w-110 h-100" />
 
           {/* TESTIMONIALS Title */}
-          <h2 className="text-4xl font-bold text-center mb-8">TESTIMONIALS</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-white uppercase">
+            TESTIMONIALS
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Testimonial Card 1 */}
-            <div className="relative pb-8">
-              <div className="bg-purple-900 bg-opacity-80 p-4 rounded-t-lg">
+            <div className="relative">
+              {/* Testimonial Avatar - Positioned at the top */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20">
+                <div className="w-16 h-16 bg-purple-900 rounded-full overflow-hidden flex items-center justify-center">
+                  <img
+                    src="image 34.png"
+                    alt="Testimonial Avatar"
+                    className="w-12 h-12"
+                  />
+                </div>
+              </div>
+              <div className="bg-purple-900 p-4 pb-12 rounded-t-lg rounded-b-xl relative z-10 mt-8">
                 <p className="text-white text-xs">
                   "They have excellent English and communication skills. They
                   worked very efficiently and kept me informed about the website
                   redesign at every step. I will use them for all my web work
                   from now on. Their prices are also very reasonable."
                 </p>
-              </div>
-              <div className="bg-purple-900 bg-opacity-80 clip-path-triangle h-12 w-full"></div>
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-                <div className="flex justify-center">
-                  <div className="relative">
-                    <div className="w-16 h-16">
-                      <img
-                        src="/public/testimonial.jpeg"
-                        alt="Testimonial Avatar"
-                        className="w-full"
-                      />
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
             {/* Testimonial Card 2 */}
-            <div className="relative pb-8">
-              <div className="bg-purple-900 bg-opacity-80 p-4 rounded-t-lg">
+            <div className="relative">
+              {/* Testimonial Avatar - Positioned at the top */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20">
+                <div className="w-16 h-16 bg-purple-900 rounded-full overflow-hidden flex items-center justify-center">
+                  <img
+                    src="image 34.png"
+                    alt="Testimonial Avatar"
+                    className="w-12 h-12"
+                  />
+                </div>
+              </div>
+              <div className="bg-purple-900 p-4 pb-12 rounded-t-lg rounded-b-xl relative z-10 mt-8">
                 <p className="text-white text-xs">
                   "They have excellent English and communication skills. They
                   worked very efficiently and kept me informed about the website
                   redesign at every step. I will use them for all my web work
                   from now on. Their prices are also very reasonable."
                 </p>
-              </div>
-              <div className="bg-purple-900 bg-opacity-80 clip-path-triangle h-12 w-full"></div>
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-                <div className="flex justify-center">
-                  <div className="relative">
-                    <div className="w-16 h-16">
-                      <img
-                        src="/api/placeholder/64/64"
-                        alt="Testimonial Avatar"
-                        className="w-full"
-                      />
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
             {/* Testimonial Card 3 */}
-            <div className="relative pb-8">
-              <div className="bg-purple-900 bg-opacity-80 p-4 rounded-t-lg">
+            <div className="relative">
+              {/* Testimonial Avatar - Positioned at the top */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20">
+                <div className="w-16 h-16 bg-purple-900 rounded-full overflow-hidden flex items-center justify-center">
+                  <img
+                    src="image 34.png"
+                    alt="Testimonial Avatar"
+                    className="w-12 h-12"
+                  />
+                </div>
+              </div>
+              <div className="bg-purple-900 p-4 pb-12 rounded-t-lg rounded-b-xl relative z-10 mt-8">
                 <p className="text-white text-xs">
                   "They have excellent English and communication skills. They
                   worked very efficiently and kept me informed about the website
                   redesign at every step. I will use them for all my web work
                   from now on. Their prices are also very reasonable."
                 </p>
-              </div>
-              <div className="bg-purple-900 bg-opacity-80 clip-path-triangle h-12 w-full"></div>
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-                <div className="flex justify-center">
-                  <div className="relative">
-                    <div className="w-16 h-16">
-                      <img
-                        src="/api/placeholder/64/64"
-                        alt="Testimonial Avatar"
-                        className="w-full"
-                      />
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
             {/* Testimonial Card 4 */}
-            <div className="relative pb-8">
-              <div className="bg-purple-900 bg-opacity-80 p-4 rounded-t-lg">
+            <div className="relative">
+              {/* Testimonial Avatar - Positioned at the top */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20">
+                <div className="w-16 h-16 bg-purple-900 rounded-full overflow-hidden flex items-center justify-center">
+                  <img
+                    src="image 34.png"
+                    alt="Testimonial Avatar"
+                    className="w-12 h-12"
+                  />
+                </div>
+              </div>
+              <div className="bg-purple-900 p-4 pb-12 rounded-t-lg rounded-b-xl relative z-10 mt-8">
                 <p className="text-white text-xs">
                   "They have excellent English and communication skills. They
                   worked very efficiently and kept me informed about the website
                   redesign at every step. I will use them for all my web work
                   from now on. Their prices are also very reasonable."
                 </p>
-              </div>
-              <div className="bg-purple-900 bg-opacity-80 clip-path-triangle h-12 w-full"></div>
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-                <div className="flex justify-center">
-                  <div className="relative">
-                    <div className="w-16 h-16">
-                      <img
-                        src="/api/placeholder/64/64"
-                        alt="Testimonial Avatar"
-                        className="w-full"
-                      />
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <style jsx>{`
-        .clip-path-triangle {
-          clip-path: polygon(50% 100%, 0 0, 100% 0);
-        }
-      `}</style>
 
       {/* Tech Section */}
       <TechSection />

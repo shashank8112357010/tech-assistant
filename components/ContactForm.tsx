@@ -28,10 +28,13 @@ export default function ContactForm() {
   return (
     <div className="w-full min-h-screen flex items-center justify-center p-4">
       <div className="w-full max-w-5xl flex flex-col">
+        <img src="Line 20.png" alt="Test" className="w-80 h-100" />
+
         {/* Main content container with dark navy background */}
         <div className="w-full bg-navy-900 text-white rounded-lg overflow-hidden">
           <div className="flex flex-col md:flex-row">
             {/* Left section with "We'd love to hear your story" */}
+
             <div className="md:w-1/2 p-8 flex flex-col justify-between">
               <div>
                 <h1 className="text-5xl font-bold mb-4">
