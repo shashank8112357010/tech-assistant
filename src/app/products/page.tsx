@@ -8,18 +8,18 @@ export const metadata = {
     "Tech Assistant products, digital products, SaaS tools, business automation, tech tools, mobile apps, web tools, software products",
   authors: [{ name: "Tech Assistant" }],
   alternates: {
-    canonical: "https://www.techassistant.com/products",
+    canonical: "https://www.techassistant.co.in/products",
   },
   openGraph: {
     title: "Products | Tech Assistant",
     description:
       "Discover powerful digital products by Tech Assistant built to streamline and scale your business.",
-    url: "https://www.techassistant.com/products",
+    url: "https://www.techassistant.co.in/products",
     type: "website",
     siteName: "Tech Assistant",
     images: [
       {
-        url: "https://www.techassistant.com/og-products.jpg", // Replace with your actual OG image
+        url: "https://www.techassistant.co.in/og-products.jpg", // Replace with your actual OG image
         width: 1200,
         height: 630,
         alt: "Tech Assistant Products Page",
@@ -33,7 +33,7 @@ export const metadata = {
       "Browse Tech Assistant’s product line built for business automation and digital growth.",
     site: "@techassistant", // Optional
     creator: "@techassistant",
-    images: ["https://www.techassistant.com/og-products.jpg"],
+    images: ["https://www.techassistant.co.in/og-products.jpg"],
   },
   robots: {
     index: true,

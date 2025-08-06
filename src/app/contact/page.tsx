@@ -8,18 +8,18 @@ export const metadata = {
     "Tech Assistant contact, get in touch, contact web agency, tech support, web development help, app development inquiry, marketing support",
   authors: [{ name: "Tech Assistant" }],
   alternates: {
-    canonical: "https://www.techassistant.com/contact",
+    canonical: "https://www.techassistant.co.in/contact",
   },
   openGraph: {
     title: "Contact Tech Assistant",
     description:
       "Reach out to Tech Assistant — your digital partner for web, app, and marketing services. Let's build something great together.",
-    url: "https://www.techassistant.com/contact",
+    url: "https://www.techassistant.co.in/contact",
     type: "website",
     siteName: "Tech Assistant",
     images: [
       {
-        url: "https://www.techassistant.com/og-contact.jpg", // Replace with your image
+        url: "https://www.techassistant.co.in/og-contact.jpg", // Replace with your image
         width: 1200,
         height: 630,
         alt: "Contact Tech Assistant",
@@ -33,7 +33,7 @@ export const metadata = {
       "Need a digital solution? Contact Tech Assistant today for personalized help and quotes.",
     site: "@techassistant", // Optional
     creator: "@techassistant",
-    images: ["https://www.techassistant.com/og-contact.jpg"],
+    images: ["https://www.techassistant.co.in/og-contact.jpg"],
   },
   robots: {
     index: true,

@@ -8,18 +8,18 @@ export const metadata = {
     "about Tech Assistant, tech company, digital partner, web agency, mobile development team, marketing experts, automation services",
   authors: [{ name: "Tech Assistant" }],
   alternates: {
-    canonical: "https://www.techassistant.com/about",
+    canonical: "https://www.techassistant.co.in/about",
   },
   openGraph: {
     title: "About Tech Assistant",
     description:
       "Meet the team behind Tech Assistant. Learn about our vision, values, and expertise in delivering scalable digital solutions.",
-    url: "https://www.techassistant.com/about",
+    url: "https://www.techassistant.co.in/about",
     type: "website",
     siteName: "Tech Assistant",
     images: [
       {
-        url: "https://www.techassistant.com/og-about.jpg", // Replace with actual OG image
+        url: "https://www.techassistant.co.in/og-about.jpg", // Replace with actual OG image
         width: 1200,
         height: 630,
         alt: "About Tech Assistant",
@@ -33,7 +33,7 @@ export const metadata = {
       "Discover who we are, what we do, and why Tech Assistant is trusted by businesses for tech innovation.",
     site: "@techassistant",
     creator: "@techassistant",
-    images: ["https://www.techassistant.com/og-about.jpg"],
+    images: ["https://www.techassistant.co.in/og-about.jpg"],
   },
   robots: {
     index: true,

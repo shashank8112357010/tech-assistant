@@ -8,18 +8,18 @@ export const metadata = {
     "get a quote, tech assistant quote, web development pricing, app development cost, digital marketing quote, tech solutions pricing, request estimate",
   authors: [{ name: "Tech Assistant" }],
   alternates: {
-    canonical: "https://www.techassistant.com/quote",
+    canonical: "https://www.techassistant.co.in/quote",
   },
   openGraph: {
     title: "Get a Quote | Tech Assistant",
     description:
       "Share your requirements and get a custom quote from Tech Assistant — your partner in smart digital solutions.",
-    url: "https://www.techassistant.com/quote",
+    url: "https://www.techassistant.co.in/quote",
     type: "website",
     siteName: "Tech Assistant",
     images: [
       {
-        url: "https://www.techassistant.com/og-quote.jpg", // Replace with your actual OG image
+        url: "https://www.techassistant.co.in/og-quote.jpg", // Replace with your actual OG image
         width: 1200,
         height: 630,
         alt: "Tech Assistant Quote Page",
@@ -33,7 +33,7 @@ export const metadata = {
       "Looking for digital services? Get your custom project quote from Tech Assistant today.",
     site: "@techassistant", // Optional
     creator: "@techassistant",
-    images: ["https://www.techassistant.com/og-quote.jpg"],
+    images: ["https://www.techassistant.co.in/og-quote.jpg"],
   },
   robots: {
     index: true,

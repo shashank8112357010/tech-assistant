@@ -8,18 +8,18 @@ export const metadata = {
     "Tech Assistant blog, tech news, web development tips, digital marketing articles, business automation blogs, industry trends",
   authors: [{ name: "Tech Assistant" }],
   alternates: {
-    canonical: "https://www.techassistant.com/blogs",
+    canonical: "https://www.techassistant.co.in/blogs",
   },
   openGraph: {
     title: "Tech Assistant Blog - Latest Tech & Business Insights",
     description:
       "Explore Tech Assistant's blog for expert articles on technology, digital solutions, marketing strategies, and product updates.",
-    url: "https://www.techassistant.com/blogs",
+    url: "https://www.techassistant.co.in/blogs",
     type: "website",
     siteName: "Tech Assistant",
     images: [
       {
-        url: "https://www.techassistant.com/og-blogs.jpg", 
+        url: "https://www.techassistant.co.in/og-blogs.jpg", 
         width: 1200,
         height: 630,
         alt: "Tech Assistant Blog Page",
@@ -33,7 +33,7 @@ export const metadata = {
       "Read the latest articles and updates from the Tech Assistant team — covering web, mobile, marketing, and automation.",
     site: "@techassistant",
     creator: "@techassistant",
-    images: ["https://www.techassistant.com/og-blogs.jpg"],
+    images: ["https://www.techassistant.co.in/og-blogs.jpg"],
   },
   robots: {
     index: true,

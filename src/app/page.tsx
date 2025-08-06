@@ -9,18 +9,18 @@ export const metadata = {
     "Tech Assistant, web development, app development, digital marketing, automation services, smart solutions, business tech, software development",
   authors: [{ name: "Tech Assistant" }],
   alternates: {
-    canonical: "https://www.techassistant.c/",
+    canonical: "https://www.techassistant.co.in",
   },
   openGraph: {
     title: "Tech Assistant - Smart Digital Solutions",
     description:
       "Grow your business with Tech Assistant’s modern web, mobile, and marketing solutions tailored to your needs.",
-    url: "https://www.techassistant.com/",
+    url: "https://www.techassistant.co.in/",
     type: "website",
     siteName: "Tech Assistant",
     images: [
       {
-        url: "https://www.techassistant.com/og-image.jpg", // Replace with your real OG image
+        url: "https://www.techassistant.co.in/og-image.jpg", // Replace with your real OG image
         width: 1200,
         height: 630,
         alt: "Tech Assistant - Smart Digital Solutions",
@@ -34,7 +34,7 @@ export const metadata = {
       "Discover innovative web and marketing solutions with Tech Assistant.",
     site: "@techassistant", // Replace with your handle if available
     creator: "@techassistant",
-    images: ["https://www.techassistant.com/og-image.jpg"], // Replace with actual
+    images: ["https://www.techassistant.co.in/og-image.jpg"], // Replace with actual
   },
   robots: {
     index: true,

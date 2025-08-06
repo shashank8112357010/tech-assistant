@@ -8,18 +8,18 @@ export const metadata = {
     "Tech Assistant services, web development, app development, SEO, digital marketing, automation, business solutions, branding, UI/UX design",
   authors: [{ name: "Tech Assistant" }],
   alternates: {
-    canonical: "https://www.techassistant.com/services",
+    canonical: "https://www.techassistant.co.in/services",
   },
   openGraph: {
     title: "Services | Tech Assistant",
     description:
       "Tech Assistant offers scalable tech services — websites, mobile apps, marketing, automation & more — crafted for business growth.",
-    url: "https://www.techassistant.com/services",
+    url: "https://www.techassistant.co.in/services",
     type: "website",
     siteName: "Tech Assistant",
     images: [
       {
-        url: "https://www.techassistant.com/og-services.jpg", // Replace with actual OG image
+        url: "https://www.techassistant.co.in/og-services.jpg", // Replace with actual OG image
         width: 1200,
         height: 630,
         alt: "Tech Assistant Services",
@@ -33,7 +33,7 @@ export const metadata = {
       "Explore our tech services — web development, mobile apps, SEO, and marketing.",
     site: "@techassistant", // Optional: your Twitter handle
     creator: "@techassistant",
-    images: ["https://www.techassistant.com/og-services.jpg"],
+    images: ["https://www.techassistant.co.in/og-services.jpg"],
   },
   robots: {
     index: true,
