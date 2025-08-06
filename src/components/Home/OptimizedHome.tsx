@@ -2,11 +2,9 @@
 
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Float, TorusKnot, Environment, Html } from "@react-three/drei";
+import {  Environment } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
-import { useSpring, animated as a, useSprings } from '@react-spring/web';
-import { useGesture } from '@use-gesture/react';
 import Link from "next/link";
 import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { CometCard } from "@/components/ui/comet-card";
@@ -15,47 +13,19 @@ import { CometCard } from "@/components/ui/comet-card";
 const StaggerTestimonials = lazy(() => import("@/components/ui/testmonals").then(mod => ({ default: mod.StaggerTestimonials })));
 const FeaturesSection = lazy(() => import("@/components/ui/Features").then(mod => ({ default: mod.FeaturesSection })));
 
-// Import the data arrays
-const services = [
-  {
-    title: "Web Development",
-    desc: "Modern, scalable websites and web apps tailored to your business needs.",
-  },
-  {
-    title: "Mobile Apps",
-    desc: "Cross-platform mobile applications for iOS and Android.",
-  },
-  {
-    title: "Cloud Solutions",
-    desc: "Cloud migration, hosting, and scalable infrastructure setup.",
-  },
-  {
-    title: "UI/UX Design",
-    desc: "Beautiful, user-centric designs for web and mobile platforms.",
-  },
-  {
-    title: "Cybersecurity",
-    desc: "Protect your business with robust security solutions.",
-  },
-  {
-    title: "Analytics & SEO",
-    desc: "Data-driven insights and SEO strategies to grow your business.",
-  },
-];
-
 const products = [
   {
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop&crop=center",
+    image: "/home/image_1.jpg",
     name: "Marketingpro",
     desc: "A comprehensive marketing automation suite to streamline campaigns, track analytics, and boost ROI.",
   },
   {
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=400&fit=crop&crop=center",
+    image: "/home/image_2.jpg",
     name: "Aimindflow",
     desc: "AI-powered workflow automation for smarter, faster business processes and decision-making.",
   },
   {
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/home/image_3.jpg",
     name: "Samvaani",
     desc: "Create original, high-quality music instantly with AI. Samvaani turns your ideas into professional soundtracks in just a few clicks.",
   },
@@ -88,26 +58,6 @@ function OptimizedWavyPlane() {
     </mesh>
   );
 }
-
-function Hero3DLogo() {
-  // Use a simpler 3D object
-  return (
-    <div className="mx-auto mb-6 flex items-center justify-center w-20 h-20 rounded-2xl bg-neutral-900 shadow-lg relative z-10">
-      <Canvas camera={{ position: [0, 0, 3.5], fov: 50 }}>
-        <ambientLight intensity={0.7} />
-        <directionalLight position={[5, 5, 5]} intensity={1.2} />
-        <Float speed={2} rotationIntensity={1.2} floatIntensity={1.5}>
-          <TorusKnot args={[0.6, 0.22, 64, 16]}>
-            <meshStandardMaterial color="#fff" metalness={0.7} roughness={0.15} />
-          </TorusKnot>
-        </Float>
-        <Environment preset="city" />
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={2} />
-      </Canvas>
-    </div>
-  );
-}
-
 // Load this component conditionally
 const Hero3DBackground = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -363,9 +313,9 @@ export default function OptimizedHomePage() {
   // Pre-load images
   useEffect(() => {
     const serviceImages = [
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+      "image_4.jpg",
+      "image_5.jpg",
+      "image_6.jpg",
     ];
     
     serviceImages.forEach(src => {
@@ -377,17 +327,17 @@ export default function OptimizedHomePage() {
   const serviceData = [
     {
       text: "Web Development",
-      img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80",
+      img: "/home/image_4.jpg",
       desc: "Modern, scalable websites and web apps tailored to your business needs."
     },
     {
       text: "Mobile Apps",
-      img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80",
+      img: "/home/image_5.jpg",
       desc: "Cross-platform mobile applications for iOS and Android."
     },
     {
       text: "Cloud Solutions",
-      img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+      img: "/home/image_6.jpg",
       desc: "Cloud migration, hosting, and scalable infrastructure setup."
     },
   ];
@@ -399,7 +349,6 @@ export default function OptimizedHomePage() {
         {showBackground && <Hero3DBackground />}
         <HeroShine />
         <div className="relative z-10 flex flex-col items-center justify-center w-full pt-16 pb-16">
-          <Hero3DLogo />
           <div className="mb-4 text-xs tracking-widest text-neutral-200 flex items-center gap-2">
             <span className="inline-block w-2 h-2 rounded-full bg-blue-400 mr-2"></span>
             NEW GEN AI AUTOMATION PARTNER

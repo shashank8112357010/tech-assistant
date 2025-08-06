@@ -8,16 +8,10 @@ import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import {
   Code2, Smartphone, Cloud, PenTool, ShieldCheck, BarChart, Users, Rocket, ArrowRight, CheckCircle, Star
 } from "lucide-react";
-import { Canvas } from "@react-three/fiber";
-import { Float, Icosahedron, TorusKnot, Environment, OrbitControls, Line, Sphere, Text } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
-import { Boxes } from "@/components/ui/bg-box";
 import { GradientCard } from "@/components/ui/gradiant-card";
 import { ContainerScroll, CardSticky } from "@/components/ui/card-stuck";
 import ProductsHero from "@/components/products-hero";
 import { useRouter } from "next/navigation";
-import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import { DemoForm } from "@/components/ui/DemoForm";
 
 const services = [
@@ -86,29 +80,6 @@ const PROCESS_PHASES = [
   },
 ];
 
-const howWeWork = [
-  {
-    icon: <Users className="w-7 h-7 text-blue-400" />,
-    title: "Discovery & Strategy",
-    desc: "We start by understanding your goals, audience, and challenges to craft a tailored strategy."
-  },
-  {
-    icon: <PenTool className="w-7 h-7 text-pink-400" />,
-    title: "Design & Prototype",
-    desc: "Our designers create wireframes and prototypes for a seamless user experience."
-  },
-  {
-    icon: <Code2 className="w-7 h-7 text-green-400" />,
-    title: "Development",
-    desc: "Our engineers build robust, scalable solutions using the latest technologies."
-  },
-  {
-    icon: <Rocket className="w-7 h-7 text-purple-400" />,
-    title: "Launch & Support",
-    desc: "We launch your project and provide ongoing support to ensure long-term success."
-  },
-];
-
 const reasons = [
   {
     icon: <CheckCircle className="w-7 h-7 text-green-400" />,
@@ -132,113 +103,10 @@ const reasons = [
   },
 ];
 
-function ServicesFull3DHero() {
-  return (
-    <div className="absolute inset-0 w-full h-full z-0">
-      <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
-        <ambientLight intensity={0.7} />
-        <directionalLight position={[5, 5, 5]} intensity={1.2} />
-        {/* Main Icosahedron */}
-        <Float speed={2} rotationIntensity={1.2} floatIntensity={1.5}>
-          <Icosahedron args={[1.1, 0]}>
-            <primitive object={new THREE.MeshStandardMaterial({ color: "#38bdf8", metalness: 0.7, roughness: 0.2 })} />
-          </Icosahedron>
-        </Float>
-        {/* Extra floating shapes for visual interest */}
-        <Float speed={1.5} rotationIntensity={0.8} floatIntensity={1.2}>
-          <TorusKnot args={[0.4, 0.13, 64, 16]} position={[-1.7, 0.7, -0.5]}>
-            <meshStandardMaterial color="#a21caf" metalness={0.8} roughness={0.2} />
-          </TorusKnot>
-        </Float>
-        <Float speed={1.2} rotationIntensity={0.6} floatIntensity={1.1}>
-          <Icosahedron args={[0.22, 0]} position={[1.5, -0.8, 0.3]}>
-            <meshStandardMaterial color="#fbbf24" metalness={0.8} roughness={0.2} />
-          </Icosahedron>
-        </Float>
-        <Environment preset="city" />
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={2} />
-      </Canvas>
-    </div>
-  );
-}
 
-function AnimatedProcessFlow() {
-  // All hooks here (useState, useRef, useFrame, etc.)
-  // Node positions for the process steps
-  const nodes = [
-    { label: "Set Requirements", pos: [-2, 2, 0], color: "#e11d48" },
-    { label: "Design", pos: [0, 2, 0], color: "#e11d48" },
-    { label: "Development", pos: [2, 2, 0], color: "#e11d48" },
-    { label: "Testing", pos: [3, 0.5, 0], color: "#e11d48" },
-    { label: "Feedback", pos: [2, -1, 0], color: "#e11d48" },
-    { label: "Delivery", pos: [-2, -1, 0], color: "#e11d48" },
-    { label: "Review", pos: [0, -2, 0], color: "#e11d48" },
-    { label: "Deployment", pos: [2.5, -2, 0], color: "#e11d48" },
-  ];
-  // Line segments between nodes
-  const lines: [[number, number, number], [number, number, number]][] = [
-    [nodes[0].pos as [number, number, number], nodes[1].pos as [number, number, number]],
-    [nodes[1].pos as [number, number, number], nodes[2].pos as [number, number, number]],
-    [nodes[2].pos as [number, number, number], nodes[3].pos as [number, number, number]],
-    [nodes[3].pos as [number, number, number], nodes[4].pos as [number, number, number]],
-    [nodes[4].pos as [number, number, number], nodes[5].pos as [number, number, number]],
-    [nodes[5].pos as [number, number, number], nodes[6].pos as [number, number, number]],
-    [nodes[6].pos as [number, number, number], nodes[7].pos as [number, number, number]],
-  ];
 
-  // Animation state
-  const [activeIdx, setActiveIdx] = useState(0);
-  const progressRef = useRef(0);
-  const animSpeed = 0.015; // Animation speed
-  const pauseFrames = 40; // Frames to pause at each node
-  const frameCount = useRef(0);
 
-  useFrame(() => {
-    if (frameCount.current < pauseFrames) {
-      frameCount.current++;
-      return;
-    }
-    progressRef.current += animSpeed;
-    if (progressRef.current >= 1) {
-      progressRef.current = 0;
-      setActiveIdx((prev) => (prev + 1) % (nodes.length - 1));
-      frameCount.current = 0;
-    }
-  });
 
-  // Interpolate active point position
-  const start = nodes[activeIdx].pos;
-  const end = nodes[activeIdx + 1].pos;
-  const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-  const activePos: [number, number, number] = [
-    lerp(start[0], end[0], progressRef.current),
-    lerp(start[1], end[1], progressRef.current),
-    lerp(start[2], end[2], progressRef.current),
-  ];
-
-  // For animated line drawing
-  const animatedLines = lines.slice(0, activeIdx + 1);
-  const partialLine = [start, activePos];
-
-  return (
-    <>
-      {/* 3D content (lights, meshes, etc.) */}
-    </>
-  );
-}
-
-function Process3DFlow() {
-  return (
-    <Canvas camera={{ position: [0, 0, 10], fov: 50 }} style={{ height: 400 }}>
-      <ambientLight intensity={0.7} />
-      <directionalLight position={[5, 5, 5]} intensity={1.2} />
-      {/* Draw completed lines */}
-      {/* Draw animated partial line */}
-      {/* Draw nodes */}
-      {/* Animated active point */}
-    </Canvas>
-  );
-}
 
 
 
@@ -365,7 +233,7 @@ export default function ServicesPage() {
               Why Choose Us
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
-              The Tech AssistantAdvantage
+              The Tech Assistant Advantage
             </h2>
             <p className="text-xl text-neutral-300 max-w-3xl mx-auto">
               Discover what sets us apart from the competition.
