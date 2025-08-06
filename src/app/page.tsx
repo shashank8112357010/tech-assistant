@@ -1,5 +1,5 @@
 
-import HomePage from "@/components/Home/Home";
+import HomeClient from "@/components/client-wrapper";
 
 export const metadata = {
   title: "Home | Tech Assistant - Smart Digital Solutions",
@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "Tech Assistant",
     images: [
       {
-        url: "https://www.techassistant.co.in/og-image.jpg", // Replace with your real OG image
+        url: "https://www.techassistant.co.in/logo.png", // Replace with your real OG image
         width: 1200,
         height: 630,
         alt: "Tech Assistant - Smart Digital Solutions",
@@ -34,7 +34,7 @@ export const metadata = {
       "Discover innovative web and marketing solutions with Tech Assistant.",
     site: "@techassistant", // Replace with your handle if available
     creator: "@techassistant",
-    images: ["https://www.techassistant.co.in/og-image.jpg"], // Replace with actual
+    images: ["https://www.techassistant.co.in/logo.png"], // Replace with actual
   },
   robots: {
     index: true,
@@ -46,12 +46,13 @@ export const metadata = {
       noimageindex: false,
     },
   },
+};
+
+export const viewport = {
   themeColor: "#0F172A", // Replace with your brand color
 };
 
 
 export default function Home() { 
-  return (<>
-  <HomePage />
-  </>
-  )}; 
+  return <HomeClient />
+}; 

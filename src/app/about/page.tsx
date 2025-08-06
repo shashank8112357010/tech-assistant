@@ -39,6 +39,9 @@ export const metadata = {
     index: true,
     follow: true,
   },
+};
+
+export const viewport = {
   themeColor: "#0F172A", // Your brand color
 };
 
