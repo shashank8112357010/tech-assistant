@@ -106,23 +106,27 @@ const howItWorks = [
   },
 ];
 
-const CARD_WIDTH = 320;
-const CARD_GAP = 24;
-const TOTAL_CARDS = products.length;
-const CONTAINER_WIDTH = (CARD_WIDTH + CARD_GAP) * TOTAL_CARDS - CARD_GAP;
-const SCROLLABLE_WIDTH = CONTAINER_WIDTH - window.innerWidth;
 
-// Section height = viewport + horizontal scroll needed
-const sectionHeight = typeof window !== "undefined"
-  ? window.innerHeight + SCROLLABLE_WIDTH
-  : "100vh";
 
 export default function ProductsPage() {
-  const router = useRouter();
+ const router = useRouter();
   const [showDemoForm, setShowDemoForm] = useState(false);
   const [selectedProductUrl, setSelectedProductUrl] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const CARD_WIDTH = 320;
+  const CARD_GAP = 24;
+  const TOTAL_CARDS = products.length;
+  const CONTAINER_WIDTH = (CARD_WIDTH + CARD_GAP) * TOTAL_CARDS - CARD_GAP;
+
+  const [sectionHeight, setSectionHeight] = useState<number | string>("100vh");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const scrollableWidth = CONTAINER_WIDTH - window.innerWidth;
+      setSectionHeight(window.innerHeight + scrollableWidth);
+    }
+  }, [CONTAINER_WIDTH]);
 
   const handleDemoSubmit = async (data: { name: string; phone: string; email: string }) => {
     setIsSubmitting(true);
@@ -140,10 +144,12 @@ export default function ProductsPage() {
 
       if (response.ok) {
         setShowDemoForm(false);
-        if (selectedProductUrl) {
-          window.location.href = selectedProductUrl;  // Redirect after form success
-        } else {
-          window.location.href = "/products";  // fallback URL
+        if (typeof window !== "undefined") {
+          if (selectedProductUrl) {
+            window.location.href = selectedProductUrl;
+          } else {
+            window.location.href = "/products";
+          }
         }
       } else {
         throw new Error("Failed to submit demo request");
@@ -157,7 +163,6 @@ export default function ProductsPage() {
   };
 
 
-
   // Refs for scroll sections
   const productsSectionRef = useRef<HTMLDivElement>(null);
   const productsContainerRef = useRef<HTMLDivElement>(null);
@@ -169,12 +174,17 @@ export default function ProductsPage() {
     offset: ["start start", "end start"],
   });
 
+  // Calculate scrollable width for horizontal scroll
+  const scrollableWidth = typeof window !== "undefined"
+    ? CONTAINER_WIDTH - window.innerWidth
+    : 0;
+
   const horizontalScroll = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, -SCROLLABLE_WIDTH]
+    [0, -scrollableWidth]
   );
-  // Prevent vertical scroll during horizontal animation
+ // Prevent vertical scroll during horizontal animation
   useEffect(() => {
     const isAnimating = scrollYProgress.get() > 0 && scrollYProgress.get() < 1;
 
