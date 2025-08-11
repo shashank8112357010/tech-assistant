@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/lightswind/card";
 import { Badge } from "@/components/lightswind/badge";
 import { Button as MovingBorderButton } from "@/components/ui/moving-border";
@@ -106,6 +106,17 @@ const howItWorks = [
   },
 ];
 
+const CARD_WIDTH = 320;
+const CARD_GAP = 24;
+const TOTAL_CARDS = products.length;
+const CONTAINER_WIDTH = (CARD_WIDTH + CARD_GAP) * TOTAL_CARDS - CARD_GAP;
+const SCROLLABLE_WIDTH = CONTAINER_WIDTH - window.innerWidth;
+
+// Section height = viewport + horizontal scroll needed
+const sectionHeight = typeof window !== "undefined"
+  ? window.innerHeight + SCROLLABLE_WIDTH
+  : "100vh";
+
 export default function ProductsPage() {
   const router = useRouter();
   const [showDemoForm, setShowDemoForm] = useState(false);
@@ -119,9 +130,7 @@ export default function ProductsPage() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
           message: "Demo request from products page",
@@ -132,10 +141,9 @@ export default function ProductsPage() {
       if (response.ok) {
         setShowDemoForm(false);
         if (selectedProductUrl) {
-          window.location.href = selectedProductUrl;
+          window.location.href = selectedProductUrl;  // Redirect after form success
         } else {
-          // fallback URL or do nothing
-          window.location.href = "/products"; // or anywhere
+          window.location.href = "/products";  // fallback URL
         }
       } else {
         throw new Error("Failed to submit demo request");
@@ -149,6 +157,7 @@ export default function ProductsPage() {
   };
 
 
+
   // Refs for scroll sections
   const productsSectionRef = useRef<HTMLDivElement>(null);
   const productsContainerRef = useRef<HTMLDivElement>(null);
@@ -157,16 +166,14 @@ export default function ProductsPage() {
   // Track scroll progress for the products section
   const { scrollYProgress } = useScroll({
     target: productsSectionRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
-  // Transform scroll progress to horizontal scroll with easing
   const horizontalScroll = useTransform(
     scrollYProgress,
-    [0, 1], // Full range for more responsive scroll
-    [0, -(products.length - 1) * 320 - (products.length - 1) * 24] // 320px card width + 24px gap
+    [0, 1],
+    [0, -SCROLLABLE_WIDTH]
   );
-
   // Prevent vertical scroll during horizontal animation
   useEffect(() => {
     const isAnimating = scrollYProgress.get() > 0 && scrollYProgress.get() < 1;
@@ -194,7 +201,11 @@ export default function ProductsPage() {
       />
 
       {/* Horizontal Scroll Products Section */}
-      <section ref={productsSectionRef} className="py-24 h-screen flex items-center">
+      <section
+        ref={productsSectionRef}
+        className="flex items-center"
+        style={{ height: sectionHeight }}
+      >
         <div className="max-w-6xl mx-auto px-4 w-full">
           <motion.div initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-24">
             <Badge variant="secondary" className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">
@@ -212,8 +223,8 @@ export default function ProductsPage() {
           <div className="relative overflow-hidden">
             <motion.div
               ref={productsContainerRef}
-              style={{ x: horizontalScroll }}
-              className="flex gap-8 cursor-grab overflow-visible"
+              style={{ x: horizontalScroll, touchAction: "pan-x" }} // <-- Add touchAction here
+              className="flex gap-8 cursor-grab overflow-visible horizontal-scroll-lock"
               drag="x"
               dragConstraints={{ left: -(products.length - 1) * 344, right: 0 }}
               dragElastic={0.1}
@@ -254,7 +265,9 @@ export default function ProductsPage() {
                           const urlToOpen = product.url.startsWith('http')
                             ? product.url
                             : `https://${product.url}`;
-                          window.open(urlToOpen, '_blank');
+
+                          setSelectedProductUrl(urlToOpen);  // Set selected product URL
+                          setShowDemoForm(true);              // Show demo form modal
                         }}
                       >
                         <span className="flex items-center justify-center gap-2">
@@ -481,4 +494,4 @@ export default function ProductsPage() {
       `}</style>
     </main>
   );
-}  
+}

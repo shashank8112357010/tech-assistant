@@ -2,16 +2,20 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaHeadset } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import confetti from 'canvas-confetti';
+import { useRouter } from "next/navigation";
+
+
 
 export default function Footer() {
   const [email, setEmail] = useState("");
 
-  
+  const router = useRouter();
+
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Multiple confetti effects for spectacular celebration
-    
+
     // 1. Main confetti blast with random directions
     confetti({
       particleCount: 150,
@@ -106,7 +110,7 @@ export default function Footer() {
 
     // Clear the email input
     setEmail("");
-    
+
     // Smooth scroll to top after a short delay to show confetti first
     setTimeout(() => {
       window.scrollTo({
@@ -114,6 +118,11 @@ export default function Footer() {
         behavior: 'smooth'
       });
     }, 1000);
+
+    // Redirect to home after confetti show (2s delay)
+    setTimeout(() => {
+      router.push("/");
+    }, 1500);
   };
 
   // Custom blast confetti effect
@@ -127,18 +136,18 @@ export default function Footer() {
         <div className="flex flex-col gap-6">
           <h2 className="text-2xl font-extrabold mb-2 tracking-tight"> <img src="/logo.png" alt="Tech Assistant" width={100} height={100} /></h2>
           <p className="text-gray-400 text-base mb-2">
-           Tech Assistant is a creative technology company delivering modern, scalable digital solutions for businesses worldwide. We blend innovation, design, and engineering to help you grow.
+            Tech Assistant is a creative technology company delivering modern, scalable digital solutions for businesses worldwide. We blend innovation, design, and engineering to help you grow.
           </p>
         </div>
         {/* Addresses */}
         <div className="flex flex-col gap-4">
           <h3 className="font-semibold text-lg mb-2">Our Offices</h3>
-            <div className="flex items-start gap-2 text-gray-300">
+          <div className="flex items-start gap-2 text-gray-300">
             <FaMapMarkerAlt className="text-gray-400 mt-1 w-[16px] h-[16px]" />
             <a href="" className="hover:text-white transition">III/12 Tikait Rai LDA Calony
-Rajajipuram, Lucknow 226017</a>
+              Rajajipuram, Lucknow 226017</a>
           </div>
-          
+
         </div>
         {/* Contact & Support */}
         <div className="flex flex-col gap-4">
@@ -157,8 +166,8 @@ Rajajipuram, Lucknow 226017</a>
           </div>
           <div className="flex gap-4 mt-2 text-2xl">
             <a href="#" aria-label="Facebook" className="hover:text-gray-200 transition"><FaFacebook /></a>
-            <a href="#" aria-label="Twitter" className="hover:text-gray-200 transition"><FaTwitter /></a>
-            <a href="#" aria-label="Instagram" className="hover:text-gray-200 transition"><FaInstagram /></a>
+            <a href="https://www.facebook.com/people/Tech-Assistant/61579277695664/" aria-label="Twitter" className="hover:text-gray-200 transition"><FaTwitter /></a>
+            <a href="https://www.instagram.com/techassistantt/" aria-label="Instagram" className="hover:text-gray-200 transition"><FaInstagram /></a>
             <a href="#" aria-label="LinkedIn" className="hover:text-gray-200 transition"><FaLinkedin /></a>
           </div>
         </div>
@@ -190,4 +199,3 @@ Rajajipuram, Lucknow 226017</a>
     </footer>
   );
 }
-

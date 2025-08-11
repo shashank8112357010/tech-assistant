@@ -130,3 +130,8 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
 }
+
+
+.horizontal-scroll-lock {
+  touch-action: pan-x;
+}

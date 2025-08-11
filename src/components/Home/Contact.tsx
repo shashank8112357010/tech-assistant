@@ -21,39 +21,12 @@ const CONTACT_INFO = [
 ];
 
 const SOCIALS = [
-  { icon: Facebook, href: "#" },
+  { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61579277695664" },
   { icon: Twitter, href: "#" },
   { icon: Linkedin, href: "#" },
-  { icon: Instagram, href: "#" },
+  { icon: Instagram, href: "https://www.facebook.com/profile.php?id=61579277695664" },
 ];
 
-function Contact3DHero() {
-  return (
-    <div className="absolute inset-0 w-full h-full z-0">
-      <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
-        <ambientLight intensity={0.7} />
-        <directionalLight position={[5, 5, 5]} intensity={1.2} />
-        <Float speed={2} rotationIntensity={1.2} floatIntensity={1.5}>
-          <Icosahedron args={[1.1, 0]}>
-            <meshStandardMaterial color="#38bdf8" metalness={0.7} roughness={0.2} />
-          </Icosahedron>
-        </Float>
-        <Float speed={1.5} rotationIntensity={0.8} floatIntensity={1.2}>
-          <TorusKnot args={[0.4, 0.13, 64, 16]} position={[-1.7, 0.7, -0.5]}>
-            <meshStandardMaterial color="#a21caf" metalness={0.8} roughness={0.2} />
-          </TorusKnot>
-        </Float>
-        <Float speed={1.2} rotationIntensity={0.6} floatIntensity={1.1}>
-          <Icosahedron args={[0.22, 0]} position={[1.5, -0.8, 0.3]}>
-            <meshStandardMaterial color="#fbbf24" metalness={0.8} roughness={0.2} />
-          </Icosahedron>
-        </Float>
-        <Environment preset="city" />
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={2} />
-      </Canvas>
-    </div>
-  );
-}
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -169,7 +142,7 @@ export default function ContactPage() {
                             Phone Number *
                           </label>
                           <input
-                            type="tel"
+                            type="number"
                             name="phone"
                             value={formData.phone}
                             onChange={handleInputChange}

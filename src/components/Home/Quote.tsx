@@ -235,7 +235,7 @@ export default function QuotePage() {
                             Phone Number *
                           </label>
                           <input
-                            type="tel"
+                            type="number"
                             name="phone"
                             value={formData.phone}
                             onChange={handleInputChange}
@@ -498,7 +498,7 @@ export default function QuotePage() {
                     Phone Number *
                   </label>
                   <input
-                    type="tel"
+                    type="number"
                     name="phone"
                     value={scheduleFormData.phone}
                     onChange={handleScheduleFormChange}
