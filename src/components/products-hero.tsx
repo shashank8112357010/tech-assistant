@@ -70,7 +70,7 @@ const ProductsHero: React.FC<ProductsHeroProps> = ({
               className="cursor-pointer bg-gradient-to-br from-blue-900/40 via-neutral-950 to-pink-900/30 text-white"
               onClick={handleClick} // ✅ click event
             >
-              {buttonIcon && <span className="mr-2">{buttonIcon}</span>}
+              {/* {buttonIcon && <span className="mr-2">{buttonIcon}</span>} */}
               {buttonText}
             </MovingBorderButton>
           )}

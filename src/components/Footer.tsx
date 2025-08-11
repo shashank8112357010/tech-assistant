@@ -165,8 +165,8 @@ export default function Footer() {
             <a href="#" className="hover:text-white transition">24/7 Live Chat</a>
           </div>
           <div className="flex gap-4 mt-2 text-2xl">
-            <a href="#" aria-label="Facebook" className="hover:text-gray-200 transition"><FaFacebook /></a>
-            <a href="https://www.facebook.com/people/Tech-Assistant/61579277695664/" aria-label="Twitter" className="hover:text-gray-200 transition"><FaTwitter /></a>
+            <a href="https://www.facebook.com/people/Tech-Assistant/61579277695664/" aria-label="Facebook" className="hover:text-gray-200 transition"><FaFacebook /></a>
+            <a href="" aria-label="Twitter" className="hover:text-gray-200 transition"><FaTwitter /></a>
             <a href="https://www.instagram.com/techassistantt/" aria-label="Instagram" className="hover:text-gray-200 transition"><FaInstagram /></a>
             <a href="#" aria-label="LinkedIn" className="hover:text-gray-200 transition"><FaLinkedin /></a>
           </div>
