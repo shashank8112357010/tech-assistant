@@ -1,9 +1,10 @@
-"use client";
+"use client"; // for Next.js 13+ app directory
 
 import { useEffect } from "react";
 
 export default function ElevenLabsAgent() {
   useEffect(() => {
+    // Dynamically add ElevenLabs script on client
     const script = document.createElement("script");
     script.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
     script.async = true;
@@ -16,11 +17,10 @@ export default function ElevenLabsAgent() {
   }, []);
 
   return (
-    <div className="elevenlabs-wrapper">
-    {/* @ts-ignore */}
+    <div>
+      {/* @ts-ignore */}
       <elevenlabs-convai agent-id="agent_7001k296k0jdf7ars96s79qv2hxt"></elevenlabs-convai>
-
-      <style jsx>{`
+         <style jsx>{`
         .elevenlabs-wrapper {
           filter: invert(1) hue-rotate(180deg);
           /* agar chaho full screen height bhi de sakte ho */
