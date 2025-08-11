@@ -247,7 +247,8 @@ export default function AboutPage() {
                       { year: "2021", text: "First 100 Clients" },
                       { year: "2022", text: "International Expansion" },
                       { year: "2023", text: "AI Innovation Hub" },
-                      { year: "2024", text: "Future Forward", isActive: true }
+                      { year: "2024", text: "Future Forward" },
+                      { year: "2025", text: "Next Level Growth", isActive: true }
                     ].map(({ year, text, isActive }) => (
                       <div
                         key={year}
