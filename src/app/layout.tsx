@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SmokeyCursor from "@/components/lightswind/smokey-cursor";
 import React,{ useState, useRef } from "react";
 import { MousePointerClick } from "lucide-react";
+import ElevenLabsAgent from "@/components/ElevenLabsAgent";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [cursorEnabled, setCursorEnabled] = useState(false);
@@ -86,6 +87,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         {/* Footer */}
         <Footer />
+          <div style={{ position: "fixed", bottom: 20, right: 20, zIndex: 999 }}>
+          <ElevenLabsAgent />
+        </div>
       </body>
     </html>
   );
