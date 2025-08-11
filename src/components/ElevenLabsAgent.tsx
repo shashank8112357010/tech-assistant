@@ -17,6 +17,7 @@ export default function ElevenLabsAgent() {
 
   return (
     <div className="elevenlabs-wrapper">
+    {/* @ts-ignore */}
       <elevenlabs-convai agent-id="agent_7001k296k0jdf7ars96s79qv2hxt"></elevenlabs-convai>
 
       <style jsx>{`
