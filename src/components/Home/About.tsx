@@ -270,7 +270,6 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
             </motion.div>
-
           </div>
         </div>
       </section>
