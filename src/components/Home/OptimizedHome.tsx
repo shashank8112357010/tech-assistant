@@ -410,8 +410,8 @@ export default function OptimizedHomePage() {
       </section> */}
       <ProductsHero
         badge="NEW GEN AI AUTOMATION PARTNER"
-        heading="Automate Smarter. Grow Faster With AI."
-        subheading=" AI Automation for Modern Businesses Made Simple"
+        heading="AI Integration Services for Business Automation or Custom AI Solutions to Automate Your Business"
+        subheading="We build and integrate custom AI agents and automation workflows to boost your efficiency and drive growth."
         buttonText="Book A Free Call"
 
       />
